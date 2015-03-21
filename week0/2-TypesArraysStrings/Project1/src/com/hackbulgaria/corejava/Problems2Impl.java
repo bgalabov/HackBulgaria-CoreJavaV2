@@ -1,6 +1,11 @@
 package com.hackbulgaria.corejava;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
+
+import javax.imageio.ImageIO;
 
 
 public class Problems2Impl implements Problems2 {
@@ -186,9 +191,14 @@ public class Problems2Impl implements Problems2 {
             return 1/pow(a, -b);
         }
         else {
-            long powerOfHalfN = pow(a, b / 2);
-            long[] factor = { 1, a };
-            return factor[b % 2] * powerOfHalfN * powerOfHalfN;
+            if(b%2!=0){
+                long powerOfHalfB=pow(a, b/2);
+                return a*powerOfHalfB*powerOfHalfB;
+            }
+            else{
+                long powerOfHalfB=pow(a, b/2);
+                return powerOfHalfB*powerOfHalfB;
+            }
         }
     }
     @Override
@@ -404,16 +414,35 @@ public class Problems2Impl implements Problems2 {
 
     @Override
     public boolean areAnagrams(String A, String B) {
-        char[] arr1=A.toCharArray();
-        char[] arr2=B.toCharArray();
+        /*char[] arr1=A.toCharArray();
+        char[] arr2=B.toCharArray();*/
         //boolean areAnagrams=false;
         
+        char[] arr1;
+        char[] arr2;
+        String[] str1=A.split(" ");
+        String[] str2=B.split(" ");
+        int str1Size=0;
+        int str2Size=0;
+        
+        /*The for-cycles below are to ensure that the sum of the letters 
+        of the two strings (excluding blank spaces) are same.*/
+        for(String s : str1){
+            str1Size+=s.length();
+        }
+        
+        for(String s : str2){
+            str2Size+=s.length();
+        }
+        
+        if(str1Size!=str2Size){
+            return false;
+        }
+        arr1=A.toCharArray();
+        arr2=B.toCharArray();
         Arrays.sort(arr1);
         Arrays.sort(arr2);
         
-        if(arr1.length!=arr2.length){
-            return false;
-        }
         for(int i=0; i<arr1.length; i++){
             if(!(arr1[i]==arr2[i])){
                 return false;
@@ -431,6 +460,61 @@ public class Problems2Impl implements Problems2 {
         }
         
         return false;
+    }
+    
+    public static void convertToGreyscale(String imgPath){
+        //String filePath=imgPath.replaceAll("\\", "\\\\");
+        BufferedImage img=null;
+        File input=null;
+        File outputFile=null;
+        int width;
+        int height;
+        int rgb;
+        int r;
+        int g;
+        int b;
+        int grayLevel;
+        int gray;
+        
+        try {
+            input=new File(imgPath);
+            System.out.println();
+            img=ImageIO.read(input);
+        } catch (IOException e) {
+            System.out.println("Cannot open image.");
+            e.printStackTrace();
+        }
+        
+        width=img.getWidth();
+        height=img.getHeight();
+        
+        for(int i=0; i<width; i++){
+            for(int j=0; j<height; j++){
+                rgb=img.getRGB(i, j);
+                r = (rgb >> 16) & 0xFF;
+                g = (rgb >> 8) & 0xFF;
+                b = (rgb & 0xFF);
+                grayLevel = (r + g + b) / 3;
+                gray = (grayLevel << 16) + (grayLevel << 8) + grayLevel; 
+                img.setRGB(i, j, gray);
+            }
+        }
+        
+        outputFile=new File(input.getAbsolutePath().toString().replace(".jpg", "_grayscale.jpg"));
+        try {
+            ImageIO.write(img, "jpg", outputFile);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+        
+        
+    }
+    
+    /* A test main for convertToGreyScale(String imgPath) method */
+    public static void main(String[] args){
+        convertToGreyscale(".\\house.jpg");
     }
 
 }
