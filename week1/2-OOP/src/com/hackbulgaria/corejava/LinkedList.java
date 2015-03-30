@@ -1,0 +1,68 @@
+package com.hackbulgaria.corejava;
+
+public class LinkedList {
+	private Element element;
+	private int size;
+	
+	public LinkedList(){
+		size=0;
+	}
+	
+	public void add(int e){
+		Element e1 = new Element(e);
+		if(size==0){
+			element=e1;
+			size++;
+		}
+		else {
+			getLastElement().next=e1;
+			size++;
+		}
+	}
+	
+	private Element getLastElement(){
+		Element e=element;
+		while(e.next!=null){
+			e=e.next;
+		}
+		return e;
+	}
+	
+	public int getLast(){
+		return getLastElement().value;
+	}
+	
+	public int get(int index){
+		Element e=element;
+		int currentIndex=0;
+		while(currentIndex<=index){
+			e=e.next;
+			currentIndex++;
+		}
+		return e.value;
+	}
+	
+	public int size(){
+		return size;
+	}
+	
+	public static void main(String[] args){
+		LinkedList ll=new LinkedList();
+		ll.add(1);
+		ll.add(2);
+		ll.add(3);
+		
+		System.out.println(ll.size);
+	}
+
+}
+
+
+class Element {
+	int value;
+	Element next=null;
+	
+	public Element(int v){
+		this.value=v;
+	}
+}

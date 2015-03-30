@@ -1,0 +1,44 @@
+package com.hackbulgaria.corejava;
+
+import java.util.Date;
+
+public class Time {
+	private int hh;
+	private int mm;
+	private int ss;
+	
+	private int dd;
+	private int MM;
+	private int YY;
+	
+	
+	public Time(int hh, int mm, int ss, int dd, int MM, int YY) {
+		if((hh < 0) || (hh < 24)
+				|| (mm < 0) || (mm < 60)
+				|| (ss < 0) || (ss < 60)
+				|| (dd < 0) || (dd <= 31)
+				|| (MM < 0) || (MM < 12)
+				|| (YY < 0)
+				) {
+			System.err.println("Error. Time is invalid. ");
+		}
+		this.hh=hh;
+		this.mm=mm;
+		this.ss=ss;
+		this.dd=dd;
+		this.MM=MM;
+		this.YY=YY;
+	}
+	
+	public String toString(){
+		return new String(hh + ":" +mm +":" +ss +" " +dd + "." +MM +"." +YY);
+	}
+	
+	public static Time now(){
+		Date dateAndTime=new Date();
+		
+		return new Time(dateAndTime.getHours(), dateAndTime.getMinutes(), dateAndTime.getSeconds(), dateAndTime.getDay(), dateAndTime.getMonth(), dateAndTime.getYear());
+	}
+	
+
+}

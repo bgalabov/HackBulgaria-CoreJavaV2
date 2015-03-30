@@ -1,0 +1,37 @@
+package com.hackbulgaria.corejava;
+
+public class Pair {
+	final Object a;
+	final Object b;
+	
+	public Pair(Object a, Object b){
+		this.a=a;
+		this.b=b;
+	}
+	
+	public Object getFirstObject(){
+		return a;
+	}
+	
+	public Object getSecondObject(){
+		return a;
+	}
+	
+	public boolean equals(Pair p){
+		if(this.a.equals(p.a) && (this.b.equals(p.b))){
+			return true;
+		}
+		return false;
+	}
+	
+	public static void main(String[] args){
+		Pair p=new Pair("a", "b");
+		System.out.println("b", "a");
+	}
+}
+
+
+//Reduce brightness
+//Grayscale
+//Gaussian Blur
+//Antialaising

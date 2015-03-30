@@ -1,0 +1,36 @@
+package com.hackbulgaria.corejava;
+
+public class LinkedList {
+	Element element;
+	int size;
+	
+	public LinkedList(){
+		size=0;
+	}
+	
+	public void add(int e){
+		if(size==0){
+			element=new Element();
+			element.value=e;
+			size++;
+		}
+		else {
+			getLast().next.value=e;
+		}
+	}
+	
+	public Element getLast(){
+		Element e=element;
+		while(e.next!=null){
+			e=e.next;
+		}
+		return e;
+	}
+
+}
+
+
+class Element {
+	int value;
+	Element next=null;
+}

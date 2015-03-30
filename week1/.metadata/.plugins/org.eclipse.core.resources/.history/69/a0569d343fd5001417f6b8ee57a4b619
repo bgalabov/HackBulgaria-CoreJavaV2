@@ -1,0 +1,19 @@
+package com.hackbulgaria.corejava;
+
+public class Pair {
+	final Object a;
+	final Object b;
+	
+	public Pair(Object a, Object b){
+		this.a=a;
+		this.b=b;
+	}
+	
+	public Object getFirstObject(){
+		return a;
+	}
+	
+	public Object getSecondObject(){
+		return a;
+	}
+}

@@ -1,0 +1,24 @@
+package com.hackbulgaria.corejava;
+
+public interface Stack {
+	
+		
+		public void push(Object newObject);
+		
+		public Object pop();
+		public Object peek();		
+		public int getCapacity();		
+		public int getCurrentLength();		
+		public boolean isEmpty();		
+		public boolean isFull();
+		static boolean contains(Object object);
+		public void clear();
+
+		
+		
+
+
+
+
+
+}

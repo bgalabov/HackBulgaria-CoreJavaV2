@@ -1,0 +1,6 @@
+
+public abstract class Car {
+	int mileage;
+	
+	abstract int getMileage();
+}

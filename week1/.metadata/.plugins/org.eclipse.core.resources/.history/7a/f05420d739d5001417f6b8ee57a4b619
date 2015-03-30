@@ -1,0 +1,56 @@
+package com.hackbulgaria.corejava;
+
+import java.time.LocalTime;
+import java.util.Calendar;
+import java.util.Date;
+
+public class Time {
+	private int hh;
+	private int mm;
+	private int ss;
+	
+	private int dd;
+	private int MM;
+	private int YY;
+	
+	
+	public Time(int hh, int mm, int ss, int dd, int MM, int YY) {
+		if((hh < 0) || (hh < 24)
+				|| (mm < 0) || (mm < 60)
+				|| (ss < 0) || (ss < 60)
+				|| (dd < 0) || (dd <= 31)
+				|| (MM < 0) || (MM <= 12)
+				|| (YY < 0)
+				) {
+			System.err.println("Error. Time is invalid. ");
+			return null;
+		}
+		this.hh=hh;
+		this.mm=mm;
+		this.ss=ss;
+		this.dd=dd;
+		this.MM=MM;
+		this.YY=YY;
+	}
+	
+	public String toString(){
+		return new String(hh + ":" +mm +":" +ss +" " +dd + "." +MM +"." +YY);
+	}
+	
+	@SuppressWarnings("deprecation")
+	public static Time now(){
+		Calendar calendar=Calendar.getInstance();
+		
+		return new Time(calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), calendar.get(Calendar.SECOND), calendar.get(Calendar.DAY_OF_MONTH), calendar.get(Calendar.MONTH), calendar.get(Calendar.YEAR));
+	}
+	
+	public static void main(String[] args){
+		Time dAndT=new Time(12, 12, 12, 12, 12, 12);
+		System.out.println("Test 1: " +dAndT.toString());
+		System.out.println("Test 2: " +Time.now().toString());
+		
+		
+	}
+	
+
+}
