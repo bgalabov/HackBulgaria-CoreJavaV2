@@ -1,0 +1,15 @@
+package com.hackbulgaria.corejava;
+
+import java.util.List;
+
+public class OnOffCollection <E> {
+	private List<E> list;
+	
+	public void add(E element){
+		if(!list.contains(element)){
+			list.add(element);
+		} else {
+			list.remove(element);
+		}
+	}
+}

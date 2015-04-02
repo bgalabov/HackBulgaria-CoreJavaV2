@@ -1,0 +1,26 @@
+package com.hackbulgaria.corejava;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class Expr {
+
+	Iterable ll;
+	
+	public Expr(){
+		List ll = new LinkedList();
+	}
+	
+	public void add(Object e) {
+		ll.add(e);
+	}
+	
+
+	
+	public static void main(String[] args) {
+		Expr e = new Expr();
+		e.add(1);
+		
+		
+	}
+}

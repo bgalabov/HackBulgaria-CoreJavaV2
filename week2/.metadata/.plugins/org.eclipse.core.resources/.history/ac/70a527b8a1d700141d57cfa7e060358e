@@ -1,0 +1,19 @@
+package com.hackbulgaria.corejava;
+
+import java.util.Collection;
+import java.util.ListIterator;
+
+public class ReverseGenericCollection {
+	
+	static <T> void reverse (Collection<T> collection){
+		Collection<T> c1;
+		ListIterator i = (ListIterator) collection.iterator();
+		while(i.hasNext()){
+			i.next();
+		}
+		while(i.hasPrevious()){
+			c1.add((T) i.previous());
+		}
+	}
+
+}

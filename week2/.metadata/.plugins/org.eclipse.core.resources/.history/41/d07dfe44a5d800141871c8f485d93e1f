@@ -1,0 +1,31 @@
+package com.hackbulgaria.corejava;
+
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
+
+public class CollectionUtility {
+	/*private static List list;*/
+	
+	public static <T> void rotate(Collection<T> collection, int rotateStep) {
+		List list;
+		list = new LinkedList<T>();
+		list.addAll(collection);
+		collection.clear();
+		if(rotateStep>0) {
+			if(rotateStep>list.size())
+				rotateStep%=list.size();
+			collection.addAll(list.subList(list.size()-rotateStep, list.size()));
+			collection.addAll(list.subList(0, list.size()-rotateStep));
+		} 
+		else {
+			if(Math.abs(rotateStep)>list.size())
+				rotateStep%=list.size();
+			rotateStep=Math.abs(rotateStep);
+			collection.addAll(list.subList(rotateStep, list.size()));
+			collection.addAll(list.subList(0, rotateStep));
+		}
+	}
+	
+
+}

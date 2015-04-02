@@ -1,0 +1,11 @@
+package com.hackbulgaria.corejava;
+
+import java.util.HashSet;
+
+public class OnOffCollectionSet implements Set {
+	private HashSet s;
+	
+	public OnOffCollectionSet() {
+		s = new HashSet();
+	}
+}

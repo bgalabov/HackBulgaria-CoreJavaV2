@@ -1,0 +1,20 @@
+package com.hackbulgaria.corejava;
+
+public class TestMain {
+
+	/*public static void main(String[] args) {
+		BoundedQueue <Integer> boundedQueue = new BoundedQueue<Integer>(3);
+		boundedQueue.offer(1);
+		boundedQueue.offer(2);
+		boundedQueue.offer(3);
+		
+		System.out.println(boundedQueue.toString());
+		
+		boundedQueue.offer(4);
+		boundedQueue.offer(5);
+		
+		System.out.println(boundedQueue.toString());
+	}*/
+	
+	
+}

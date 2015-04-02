@@ -1,0 +1,24 @@
+package com.hackbulgaria.corejava;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+public class OnOffCollectionSet {
+	private Set s;
+	
+	public OnOffCollectionSet() {
+		s = new HashSet();
+	}
+	
+	public void add(Object e) {
+		if(s.contains(e)){
+			s.remove(e);
+		}
+		s.add(e);
+	}
+	
+}
+
+	

@@ -1,0 +1,46 @@
+package com.hackbulgaria.corejava;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class TestMain {
+
+	/*public static void main(String[] args) {
+		BoundedQueue <Integer> boundedQueue = new BoundedQueue<Integer>(3);
+		boundedQueue.offer(1);
+		boundedQueue.offer(2);
+		boundedQueue.offer(3);
+		
+		System.out.println(boundedQueue.toString());
+		
+		boundedQueue.offer(4);
+		boundedQueue.offer(5);
+		
+		System.out.println(boundedQueue.toString());
+	}*/
+	
+	/*public static void main(String[] args) {
+		List<String> nums;
+		List<Integer> n1;
+		String[] strs = { "one", "two", "three", "four", "five", "six", "seven" };
+		nums = new ArrayList<String>(Arrays.asList(strs));
+		CollectionUtility.rotate(nums, 1);
+		
+		for(int i=0; i < nums.size(); i++) {
+			System.out.print(nums.get(i) + " ");
+		}
+		
+		System.out.println();
+		
+		Integer[] n = {1, 2, 3, 4, 5, 6, 7 };
+		n1 =  new ArrayList<Integer>(Arrays.asList(n));
+		CollectionUtility.rotate(n1, 1);
+		
+		for(int i=0; i < nums.size(); i++) {
+			System.out.print(n1.get(i) + " ");
+		}
+	}*/
+	
+	
+}

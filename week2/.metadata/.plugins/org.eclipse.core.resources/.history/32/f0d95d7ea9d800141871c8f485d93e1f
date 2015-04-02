@@ -1,0 +1,11 @@
+package com.hackbulgaria.corejava;
+
+import java.util.HashSet;
+
+public class Expr {
+	HashSet s;
+	
+	public Expr() {
+		s=new HashSet();
+	}
+}

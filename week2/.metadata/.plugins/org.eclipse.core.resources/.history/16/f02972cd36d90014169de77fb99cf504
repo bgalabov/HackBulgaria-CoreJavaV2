@@ -1,0 +1,55 @@
+package com.hackbulgaria.corejava;
+
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import javax.swing.text.html.HTMLDocument.Iterator;
+
+public class CollectionUtility {
+	
+	public static <T> void rotate(Collection<T> collection, int rotateStep) {
+		List<T> list = new LinkedList<T>();
+		list.addAll(collection);
+		collection.clear();
+		if(rotateStep>0) {
+			if(rotateStep>list.size())
+				rotateStep%=list.size();
+			collection.addAll(list.subList(list.size()-rotateStep, list.size()));
+			collection.addAll(list.subList(0, list.size()-rotateStep));
+		} 
+		else {
+			if(Math.abs(rotateStep)>list.size())
+				rotateStep%=list.size();
+			rotateStep=Math.abs(rotateStep);
+			collection.addAll(list.subList(rotateStep, list.size()));
+			collection.addAll(list.subList(0, rotateStep));
+		}
+	}
+	
+	public static Integer firstUnique(Collection <Integer> collection) {
+		Map<Integer, Integer> linkedHashMap = new LinkedHashMap<Integer, Integer>();
+		java.util.Iterator<Integer> it = collection.iterator();
+		Integer currentInt;
+		Set keySet;
+		
+		while(it.hasNext()){
+			currentInt=it.next();
+			if(!linkedHashMap.containsKey(currentInt)) {
+				linkedHashMap.put(currentInt, 1);
+			} else {
+				linkedHashMap.put(currentInt, linkedHashMap.get(currentInt)+1);
+			}
+		}
+		
+		keySet=linkedHashMap.keySet();
+		
+		
+	}
+	
+
+}

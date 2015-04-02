@@ -1,0 +1,26 @@
+package com.hackbulgaria.corejava;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class TestMain {
+
+	/*public static void main(String[] args) {
+		BoundedQueue <Integer> boundedQueue = new BoundedQueue<Integer>(3);
+		boundedQueue.offer(1);
+		boundedQueue.offer(2);
+		boundedQueue.offer(3);
+		
+		System.out.println(boundedQueue.toString());
+		
+		boundedQueue.offer(4);
+		boundedQueue.offer(5);
+		
+		System.out.println(boundedQueue.toString());
+	}*/
+	
+	public static void main(String[] args) {
+		List<String> nums = new ArrayList<String>(7);
+		nums.addAll("one", "two");
+	}
+}
