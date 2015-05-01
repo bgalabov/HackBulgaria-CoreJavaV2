@@ -28,27 +28,13 @@ public class FileUtils {
     }
 
     public String readFrom(File file) throws FileNotFoundException, IOException {
-        BufferedReader fileInput = new BufferedReader(new FileReader(file));
-        String readString = fileInput.readLine();
-        StringBuilder strBldr = new StringBuilder();
-        while (readString != null) {
-            strBldr.append(readString);
-            strBldr.append("\n");
-            readString = fileInput.readLine();
-        }
-        fileInput.close();
-        return strBldr.toString();
+        byte[] fileBytes = Files.readAllBytes(file.toPath());
+        return new String(fileBytes);
     }
 
     public String readFrom(Path path) throws FileNotFoundException, IOException {
-        List<String> fileContain = Files.readAllLines(path);
-        StringBuilder strBldr = new StringBuilder();
-
-        for (String s : fileContain) {
-            strBldr.append(s);
-            strBldr.append("\n");
-        }
-        return strBldr.substring(0, strBldr.length() - 1).toString();
+        byte[] fileBytes = Files.readAllBytes(path);
+        return new String(fileBytes);
     }
 
     public void writeToFile(File file, String str) throws IOException {
