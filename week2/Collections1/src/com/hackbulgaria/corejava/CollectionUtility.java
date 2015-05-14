@@ -1,6 +1,8 @@
 package com.hackbulgaria.corejava;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,7 +11,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import javax.swing.text.html.HTMLDocument.Iterator;
 
 public class CollectionUtility {
 	
@@ -69,6 +70,34 @@ public class CollectionUtility {
 		
 		return result;
 	
+	}
+	
+	public static String hashMapToString(Map<? extends Object, ? extends Object> map) {
+		Set<?> entrySet = map.entrySet();
+		Iterator<?> it =  entrySet.iterator();
+		Map.Entry<? extends Object, ? extends Object> entry=null;
+		StringBuilder strbldr = new StringBuilder();
+		strbldr.append("{ ");
+		while(it.hasNext()) {
+			entry = (Entry<? extends Object, ? extends Object>) it.next();
+			strbldr.append(entry.getKey() +":" +entry.getValue() + ", ");
+		}
+		return new StringBuilder(strbldr.substring(0, strbldr.length()-2)).append(" }").toString();
+	}
+	
+	public static Map<String, Integer> countOccurencesOfWords(String str) {
+		String[] words = str.split(("[\\p{IsPunctuation}\\p{IsWhite_Space}]+"));
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		for(String s : words) {
+			System.out.println(s);
+			if(map.containsKey(s)) {
+				map.put(s, map.get(s)+1);
+			}
+			else {
+				map.put(s, 1);
+			}
+		}
+		return map;
 	}
 	
 
